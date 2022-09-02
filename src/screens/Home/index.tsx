@@ -1,11 +1,15 @@
 import { Text, TextInput, View, TouchableOpacity } from 'react-native';
-import { Particpant } from '../../components/Participant';
+import { Participant } from '../../components/Participant';
 
 import { styles } from './styles';
 
 export function Home() {
   function handleParticipantAdd() {
-    console.log('foi')
+    console.log('adicionou')
+  }
+
+  function handleParticipantRemove(name: string) {
+    console.log(`removeu o ${name}`)
   }
 
   return (
@@ -27,9 +31,11 @@ export function Home() {
         </TouchableOpacity>
       </View>
 
-      <Particpant />
-      <Particpant />
-      <Particpant />
+      <Participant
+        name="Lima"
+        onRemove={() => handleParticipantRemove("rodrigo")}
+      />
+
 
     </View>
   )
