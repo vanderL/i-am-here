@@ -15,14 +15,15 @@ export function Home() {
 
     setParticipants(prevState => [...prevState, participantName]);
     setParticipantName('')
-    console.log(participants)
   }
 
   function handleParticipantRemove(name: string) {
+
     Alert.alert("Remover", `Deseja remover o participante ${name} ?`, [
       {
         text: "Sim",
-        onPress: () => Alert.alert("Deletado!")
+        onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name))
+
       },
       {
         text: 'Não',
@@ -32,9 +33,6 @@ export function Home() {
 
   }
 
-  // function handleChangeParticipant(event) {
-  //   setParticipantName(event.target.value)
-  // }
 
   return (
     <View style={styles.container}>
